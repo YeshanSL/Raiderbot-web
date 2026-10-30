@@ -15,10 +15,14 @@
   }
   $('#gform').addEventListener('submit', async e => {
     e.preventDefault();
+    if (!/^[0-9a-f]{32}:[0-9a-f]{64}$/.test(H)) return msg('The passkeyHash in js/config.js is not valid. Create it again with set-passkey.html and paste the whole line.', 'err');
     if (!window.crypto?.subtle) return msg('Open this site over https to unlock.', 'err');
     msg('Checking…');
-    const [salt, hash] = H.split(':');
-    if (await derive($('#k').value, salt) === hash) { sessionStorage.setItem('raider-auth', H); $('#k').value = ''; msg(''); open(); }
-    else msg('Wrong passkey.', 'err');
+    try {
+      const [salt, hash] = H.split(':'), typed = $('#k').value;
+      const ok = (await derive(typed, salt)) === hash || (typed !== typed.trim() && (await derive(typed.trim(), salt)) === hash);
+      if (ok) { sessionStorage.setItem('raider-auth', H); $('#k').value = ''; msg(''); open(); }
+      else msg('Wrong passkey. Check caps lock and that it matches the one used in set-passkey.html.', 'err');
+    } catch (err) { msg('Could not check the passkey: ' + err.message, 'err'); }
   });
 })();
