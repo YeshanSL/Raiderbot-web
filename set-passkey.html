@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<link rel="stylesheet" href="css/style.css"><title>Set passkey</title></head><body>
+<main class="wrap" style="max-width:560px;padding:56px 24px">
+<h1 style="font-size:2rem">Set your passkey</h1>
+<p class="lead" style="font-size:1rem">Type the passkey you want. This page turns it into a scrambled version to paste into <code>js/config.js</code>. Nothing is sent anywhere.</p>
+<div class="card" style="margin-top:20px"><label for="p" style="margin-top:0">Passkey (12+ characters)</label><input id="p" type="text" autocomplete="off">
+<div class="btns"><button class="btn primary" id="go">Create</button></div>
+<div id="res" hidden><label>Paste this line into config.js</label><pre><code id="line"></code></pre><button class="btn" id="cp">Copy</button></div><p id="gmsg"></p></div></main>
+<script>
+const hex=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+document.getElementById('go').onclick=async()=>{
+ const p=document.getElementById('p').value,m=document.getElementById('gmsg');
+ if(p.length<12){m.textContent='Use at least 12 characters.';m.className='err';return}
+ if(!crypto.subtle){m.textContent='Open this page over https or localhost.';m.className='err';return}
+ const salt=crypto.getRandomValues(new Uint8Array(16)),key=await crypto.subtle.importKey('raw',new TextEncoder().encode(p),'PBKDF2',false,['deriveBits']);
+ const h=hex(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt,iterations:200000},key,256));
+ document.getElementById('line').textContent='passkeyHash: "'+hex(salt)+':'+h+'",';
+ document.getElementById('res').hidden=false;m.textContent='';
+};
+document.getElementById('cp').onclick=()=>navigator.clipboard.writeText(document.getElementById('line').textContent);
+</script></body></html>

@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><title>Admin panel – Dark Raider</title>
+<style>.panel{max-width:620px;margin:56px auto}.panel .card{margin-top:20px}.panel label{display:block;margin:14px 0 6px;font-weight:600;font-size:.92rem}
+.panel input,.panel select{width:100%;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);font:inherit}
+.set{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.set label{grid-column:1/-1;margin-bottom:0}
+#msg{margin-top:16px;min-height:1.5em;color:var(--mute)}#msg.err{color:var(--bad)}#msg.ok{color:var(--ok)}[hidden]{display:none!important}</style></head><body>
+<header class="nav"><div class="wrap"><a class="logo" href="index.html"><i>⚔</i><span data-name>Dark Raider</span></a>
+<nav><a href="index.html">Home</a><a href="docs.html">Docs</a><a href="panel.html" aria-current="page">Admin panel</a></nav><button class="menu-btn" aria-label="Menu">☰</button></div></header>
+<main class="wrap panel">
+ <section id="login" style="padding:0"><h1 style="font-size:2rem">Admin panel</h1>
+  <p class="lead">Log in with the username and password the bot gave you. Server admins can get them by running <code>/panel-access</code> in Discord.</p>
+  <div class="card"><label for="u">Username</label><input id="u" autocomplete="username"><label for="p">Password</label><input id="p" type="password" autocomplete="current-password">
+  <div class="btns"><button class="btn primary" id="go">Log in</button></div></div></section>
+ <section id="app" hidden style="padding:0"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+  <h1 style="font-size:2rem" id="gname">Server</h1><button class="btn" id="out">Log out</button></div>
+  <div class="card"><h3>Message channels</h3><div id="rows"></div></div>
+  <div class="card"><h3>Change password</h3><label for="np">New password (10+ characters)</label><input id="np" type="password" autocomplete="new-password">
+  <div class="btns"><button class="btn" id="pw">Update password</button></div></div></section>
+ <p id="msg" role="status"></p>
+</main>
+<script src="js/config.js"></script><script src="js/panel.js"></script></body></html>

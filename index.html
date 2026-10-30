@@ -1,0 +1,63 @@
+<!doctype html><html lang="en" class="locked"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<title>Dark Raider – Discord bot for levels, voice tracking and FPS team mode</title>
+<meta name="description" content="Dark Raider is a Discord bot for gaming communities: chat and voice levels, FPS team voice isolation, soundboard control, welcome and boost messages.">
+</head><body>
+<div id="gate"><form class="box card" id="gform"><h1 style="font-size:1.8rem">⚔ Dark Raider</h1>
+<p class="lead" style="font-size:1rem">Enter the passkey to continue.</p>
+<label for="k">Passkey</label><input id="k" type="password" autocomplete="current-password" required autofocus>
+<div class="btns"><button class="btn primary" type="submit">Unlock</button></div><p id="gmsg" role="status"></p></form></div>
+
+<header class="nav"><div class="wrap"><a class="logo" href="index.html"><i>⚔</i><span data-name>Dark Raider</span></a>
+<nav><a href="index.html#features">Features</a><a href="index.html#team">Team mode</a><a href="index.html#commands">Commands</a><a href="index.html#status">Status</a><a href="docs.html">Docs</a></nav>
+<a class="btn primary" data-invite href="#">Add to Discord</a><button class="menu-btn" aria-label="Menu">☰</button></div></header>
+<main>
+<section class="hero"><div class="wrap"><div>
+ <span class="pill" data-status><span class="dot"></span><span data-status-text>Checking status…</span></span>
+ <h1>Run your squad like a ranked match.</h1>
+ <p class="lead"><span data-name>Dark Raider</span> gives your gaming server levels, voice tracking, two-team voice isolation and soundboard control, all from simple slash commands.</p>
+ <div class="btns"><a class="btn primary" data-invite href="#">Add to Discord</a><a class="btn" href="docs.html">Read the docs</a></div>
+</div>
+<div aria-hidden="true">
+ <div class="embed"><small>/rank</small><b>⚔️ Level 12 · Raider</b><div class="bar"><span></span></div><div class="row"><span>Level progress</span><span>68%</span></div></div>
+ <div class="embed"><small>/team status</small><b>🎧 Team mode: ON</b><div class="team"><div>Team 1<br>4 players</div><div>Team 2<br>4 players</div></div></div>
+</div></div></section>
+
+<section id="status" style="padding-top:24px"><div class="wrap">
+ <div class="sec-head"><h2>Live bot status</h2><p>Checks the bot automatically while you read this page.</p></div>
+ <div class="stats">
+  <div class="stat"><b data-status-text>…</b><span>Status</span></div>
+  <div class="stat"><b id="s-ping">–</b><span>Latency</span></div>
+  <div class="stat"><b id="s-servers">–</b><span>Servers</span></div>
+  <div class="stat"><b id="s-uptime">–</b><span>Uptime</span></div>
+ </div><p class="checked" id="s-checked"></p>
+</div></section>
+
+<section id="features"><div class="wrap">
+ <div class="sec-head"><h2>Everything your server needs</h2><p>Built for gaming communities that live in voice chat.</p></div>
+ <div class="grid" id="features-grid"></div>
+</div></section>
+
+<section id="team"><div class="wrap">
+ <div class="sec-head"><h2>FPS team mode</h2><p>Split one voice channel into two private squads, then merge everyone back when the match ends. Admin only.</p></div>
+ <div class="steps">
+  <div class="card"><h3>Pick the channel</h3><p><code>/team setup</code> links the voice channel you play in.</p></div>
+  <div class="card"><h3>Assign players</h3><p><code>/team assign</code>, or <code>/team panel on</code> so players choose.</p></div>
+  <div class="card"><h3>Go live</h3><p><code>/team on</code> creates two private channels and moves each team.</p></div>
+  <div class="card"><h3>Match over</h3><p><code>/team off</code> moves everyone back and deletes the temp channels.</p></div>
+ </div>
+</div></section>
+
+<section id="commands"><div class="wrap">
+ <div class="sec-head"><h2>Commands</h2><p>Type <code>/</code> in any channel to see them. Admin commands need Administrator or your admin role.</p></div>
+ <input class="search" id="cmd-search" type="search" placeholder="Search commands" aria-label="Search commands">
+ <div id="commands-list"></div>
+</div></section>
+
+<section><div class="wrap"><div class="cta"><h2>Ready to raid?</h2><p>Add <span data-name>Dark Raider</span> to your server in under a minute.</p>
+ <div class="btns"><a class="btn primary" data-invite href="#">Add to Discord</a><a class="btn" data-support href="#">Join support server</a></div></div></div></section>
+</main>
+<footer><div class="wrap"><span>© <span id="year"></span> <span data-name>Dark Raider</span>. Not affiliated with Discord.</span><span><a href="docs.html">Docs</a> &nbsp;·&nbsp; <a href="#" id="out">Log out</a> &nbsp;·&nbsp; <a data-support href="#">Support server</a> &nbsp;·&nbsp; <a data-github href="#">GitHub</a></span></div></footer>
+<script src="js/config.js"></script><script src="js/data.js"></script><script src="js/gate.js"></script><script src="js/main.js"></script></body></html>
