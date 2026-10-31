@@ -39,3 +39,16 @@ window.COMMANDS = [
     { cmd: "/setchannel <type> <channel>", desc: "Set the channel for welcome, boost, levelup, voice or dashboard messages." },
   ]},
 ];
+
+// ─── Owner & admins shown in the "Owner & admins" section ───
+// ADD PEOPLE HERE: copy one line, change the values. Only `name` and `role` are required.
+//   role   → "Owner" or "Admin" (any text works)
+//   avatar → optional picture URL (a Discord avatar link works). Leave out for an initial letter.
+//   bio    → optional short line
+//   link   → optional (e.g. their Discord or GitHub profile)
+// If this list is EMPTY, the site shows the owner + admins found automatically by the bot instead
+// (needs STATUS_GUILD_ID on the bot). The section hides itself if there is nothing to show.
+window.TEAM = [
+  // { name: "YourName", role: "Owner", avatar: "", bio: "Founder & developer", link: "https://discord.com/users/123" },
+  // { name: "AdminName", role: "Admin", bio: "Moderator" },
+];

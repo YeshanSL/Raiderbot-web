@@ -16,7 +16,7 @@ window.RAIDER = {
   //  "api"    → your bot serves /status (see bot-status-server.js)   ← recommended
   //  "widget" → uses Discord server widget (enable it in Server Settings → Widget)
   //  "demo"   → fake online data, for previewing the design
-   status: {
+     status: {
      mode: "widget",
      widgetGuildId: "980089449687965726",
      refreshSeconds: 30,

@@ -11,7 +11,7 @@
 <div class="btns"><button class="btn primary" type="submit">Unlock</button></div><p id="gmsg" role="status"></p></form></div>
 
 <header class="nav"><div class="wrap"><a class="logo" href="index.html"><i>⚔</i><span data-name>Dark Raider</span></a>
-<nav><a href="index.html#features">Features</a><a href="index.html#team">Team mode</a><a href="index.html#commands">Commands</a><a href="index.html#status">Status</a><a href="docs.html">Docs</a></nav>
+<nav><a href="index.html#features">Features</a><a href="index.html#team">Team mode</a><a href="index.html#commands">Commands</a><a href="index.html#status">Status</a><a href="index.html#staff">Staff</a><a href="docs.html">Docs</a></nav>
 <a class="btn primary" data-invite href="#">Add to Discord</a><button class="menu-btn" aria-label="Menu">☰</button></div></header>
 <main>
 <section class="hero"><div class="wrap"><div>
@@ -29,8 +29,10 @@
  <div class="sec-head"><h2>Live bot status</h2><p>Checks the bot automatically while you read this page.</p></div>
  <div class="stats">
   <div class="stat"><b data-status-text>…</b><span>Status</span></div>
-  <div class="stat"><b id="s-ping">–</b><span>Latency</span></div>
   <div class="stat"><b id="s-servers">–</b><span>Servers</span></div>
+  <div class="stat"><b id="s-members">–</b><span>Total members</span></div>
+  <div class="stat"><b id="s-online">–</b><span>Online now</span></div>
+  <div class="stat"><b id="s-ping">–</b><span>Latency</span></div>
   <div class="stat"><b id="s-uptime">–</b><span>Uptime</span></div>
  </div><p class="checked" id="s-checked"></p>
 </div></section>
@@ -54,6 +56,11 @@
  <div class="sec-head"><h2>Commands</h2><p>Type <code>/</code> in any channel to see them. Admin commands need Administrator or your admin role.</p></div>
  <input class="search" id="cmd-search" type="search" placeholder="Search commands" aria-label="Search commands">
  <div id="commands-list"></div>
+</div></section>
+
+<section id="staff" hidden><div class="wrap">
+ <div class="sec-head"><h2>Owner &amp; admins</h2><p>The people behind <span data-name>Dark Raider</span>.</p></div>
+ <div class="grid" id="staff-grid"></div>
 </div></section>
 
 <section><div class="wrap"><div class="cta"><h2>Ready to raid?</h2><p>Add <span data-name>Dark Raider</span> to your server in under a minute.</p>

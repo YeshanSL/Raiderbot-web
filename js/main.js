@@ -26,6 +26,19 @@ function renderCommands(q = '') {
 renderCommands();
 $('#cmd-search')?.addEventListener('input', e => renderCommands(e.target.value));
 
+// Owner & admins: the manual list in data.js wins; otherwise use what the bot found
+function renderStaff(home) {
+  const list = (window.TEAM && TEAM.length) ? TEAM : home ? [home.owner, ...home.admins] : [];
+  const sec = $('#staff'); if (!sec) return;
+  sec.hidden = !list.length;
+  $('#staff-grid').innerHTML = list.map(p => {
+    const av = p.avatar ? `<img class="av" src="${esc(p.avatar)}" alt="" loading="lazy">` : `<div class="av">${esc((p.name || '?')[0].toUpperCase())}</div>`;
+    const name = p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.name)}</a>` : esc(p.name);
+    const alt = /owner/i.test(p.role) ? '' : ' alt';
+    return `<div class="card person">${av}<div><b>${name}</b><span class="tag${alt}">${esc(p.role || 'Admin')}</span>${p.bio ? `<p>${esc(p.bio)}</p>` : ''}</div></div>`;
+  }).join('');
+}
+
 // Bot status
 const fmtUp = s => { const d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60); return d ? `${d}d ${h}h` : h ? `${h}h ${m}m` : `${m}m`; };
 const set = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
@@ -35,6 +48,9 @@ function showStatus(d) {
   const label = { online: 'Online', offline: 'Offline', unknown: 'Status unavailable' }[state];
   $$('[data-status-text]').forEach(e => e.textContent = label);
   const on = d && d.online;
+  set('s-members', on && d.users != null ? d.users.toLocaleString() : '–');
+  set('s-online', on && d.onlineMembers != null ? d.onlineMembers.toLocaleString() : '–');
+  renderStaff(on ? d.home : null);
   set('s-ping', on && d.ping != null ? d.ping + ' ms' : '–');
   set('s-servers', on && d.servers != null ? d.servers.toLocaleString() : '–');
   set('s-users', on && d.users != null ? d.users.toLocaleString() : '–');
@@ -44,7 +60,8 @@ function showStatus(d) {
 async function checkStatus() {
   const s = C.status;
   try {
-    if (s.mode === 'demo') return showStatus({ online: true, ping: 42, servers: 128, users: 24310, uptime: 86400 * 6 + 3600 * 5 });
+    if (s.mode === 'demo') return showStatus({ online: true, ping: 42, servers: 128, users: 24310, onlineMembers: 6120, uptime: 86400 * 6 + 3600 * 5,
+      home: { owner: { name: 'Owner Name', role: 'Owner' }, admins: [{ name: 'Admin One', role: 'Admin' }, { name: 'Admin Two', role: 'Admin' }] } });
     if (s.mode === 'api') {
       const r = await fetch(s.apiUrl, { cache: 'no-store' }); if (!r.ok) throw 0;
       return showStatus(await r.json());
