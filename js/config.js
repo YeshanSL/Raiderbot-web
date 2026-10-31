@@ -4,7 +4,7 @@ window.RAIDER = {
   tagline: "Levels, voice tracking and FPS team audio for your Discord server.",
   clientId: "1553001957185167361", // Discord Developer Portal → Application ID
   supportUrl: "https://discord.gg/YOUR_INVITE",
-  githubUrl: "https://github.com/YeshanSL/Raiderbot-web",
+  githubUrl: "https://github.com/YeshanSL/Raider-bot",
 
   // Passkey for the site. Create it with set-passkey.html and paste the line it gives you here.
   passkeyHash: "f7492ae2a6e1bbc86b46bfce20a83c76:1ba98a0b661957cd20d51c445fe22a972fdd5193b762698f8040db33b023035f",
