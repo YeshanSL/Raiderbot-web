@@ -16,11 +16,11 @@ window.RAIDER = {
   //  "api"    → your bot serves /status (see bot-status-server.js)   ← recommended
   //  "widget" → uses Discord server widget (enable it in Server Settings → Widget)
   //  "demo"   → fake online data, for previewing the design
-  status: {
-    mode: "demo",
-    widgetGuildId: "",
-    refreshSeconds: 30,
-  },
+   status: {
+     mode: "widget",
+     widgetGuildId: "980089449687965726",
+     refreshSeconds: 30,
+   },
 };
 window.RAIDER.status.apiUrl = window.RAIDER.apiBase + "/status";
 window.RAIDER.inviteUrl =
