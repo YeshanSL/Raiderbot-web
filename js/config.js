@@ -10,7 +10,7 @@ window.RAIDER = {
   passkeyHash: "f7492ae2a6e1bbc86b46bfce20a83c76:1ba98a0b661957cd20d51c445fe22a972fdd5193b762698f8040db33b023035f",
 
   // Your bot's public URL (the panel-server.js API). No trailing slash.
-  apiBase: "https://raider-bot-q15e.onrender.com/Status",
+  apiBase: "https://raider-bot-q15e.onrender.com",
 
   // Bot status indicator
   //  "api"    → your bot serves /status (see bot-status-server.js)   ← recommended
