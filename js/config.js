@@ -17,7 +17,7 @@ window.RAIDER = {
   //  "widget" → uses Discord server widget (enable it in Server Settings → Widget)
   //  "demo"   → fake online data, for previewing the design
      status: {
-     mode: "widget",
+     mode: "api",
      widgetGuildId: "980089449687965726",
      refreshSeconds: 30,
    },
