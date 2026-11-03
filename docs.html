@@ -1,21 +1,14 @@
 <!doctype html><html lang="en" class="locked"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0c13">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <title>Docs – Dark Raider</title>
 <meta name="description" content="Setup guide and documentation for the Dark Raider Discord bot.">
-</head><body>
-<div id="gate"><form class="box card" id="gform"><h1 style="font-size:1.8rem">⚔ Dark Raider</h1>
-<p class="lead" style="font-size:1rem">Enter the passkey to continue.</p>
-<label for="k">Passkey</label><input id="k" type="password" autocomplete="current-password" required autofocus>
-<div class="btns"><button class="btn primary" type="submit">Unlock</button></div><p id="gmsg" role="status"></p></form></div>
-
-<header class="nav"><div class="wrap"><a class="logo" href="index.html"><i>⚔</i><span data-name>Dark Raider</span></a>
-<nav><a href="index.html#features">Features</a><a href="index.html#team">Team mode</a><a href="index.html#commands">Commands</a><a href="index.html#status">Status</a><a href="index.html#staff">Staff</a><a href="index.html#control">Control</a><a href="docs.html">Docs</a></nav>
-<a class="btn primary" data-invite href="#">Add to Discord</a><button class="menu-btn" aria-label="Menu">☰</button></div></header>
+</head><body data-page="docs"><main>
 <div class="wrap docs">
 <aside class="side" aria-label="Docs menu">
- <a href="#intro">Introduction</a><a href="#setup">Setup</a><a href="#config">Configuration</a><a href="#levels">Levels &amp; XP</a><a href="#voice">Voice tracking</a><a href="#team">Team mode</a><a href="#soundboard">Soundboard control</a><a href="#messages">Welcome &amp; boost</a><a href="#commands">All commands</a><a href="#hosting">Hosting</a><a href="#help">Troubleshooting</a>
+ <a href="#intro">Introduction</a><a href="#setup">Setup</a><a href="#config">Configuration</a><a href="#levels">Levels &amp; XP</a><a href="#voice">Voice tracking</a><a href="#team">Team mode</a><a href="#soundboard">Soundboard control</a><a href="#messages">Welcome &amp; boost</a><a href="#control">Control panel</a><a href="#commands">All commands</a><a href="#hosting">Hosting</a><a href="#help">Troubleshooting</a>
 </aside>
 <article class="doc">
 <section id="intro"><h1>Documentation</h1>
@@ -24,12 +17,12 @@
 
 <section id="setup"><h2>Setup</h2>
  <h3>1. Create the bot</h3>
- <ol><li>Open the <a href="https://discord.com/developers/applications" style="text-decoration:underline">Discord Developer Portal</a> and click <b>New Application</b>.</li>
+ <ol><li>Open the <a href="https://discord.com/developers/applications" >Discord Developer Portal</a> and click <b>New Application</b>.</li>
  <li>Go to the <b>Bot</b> tab and add a bot.</li>
  <li>Turn on <b>Server Members</b>, <b>Message Content</b> and <b>Presence</b> intents.</li>
  <li>Copy the bot token. Never share it.</li></ol>
  <h3>2. Invite it</h3>
- <p>Use the <a data-invite href="#" style="text-decoration:underline">invite link</a>. It asks for Administrator, which team mode needs to move members and manage channels.</p>
+ <p>Use the <a data-invite href="#" >invite link</a>. It asks for Administrator, which team mode needs to move members and manage channels.</p>
  <h3>3. Configure and run</h3>
  <pre><code>cp .env.example .env   # add DISCORD_TOKEN, channel IDs, role IDs
 npm install
@@ -38,10 +31,10 @@ npm start</code></pre>
 
 <section id="config"><h2>Configuration</h2>
  <p>Choose where each message type is posted with <code>/setchannel &lt;type&gt; &lt;channel&gt;</code>. Changes apply immediately.</p>
- <table><tr><th>Type</th><th>What it controls</th></tr>
+ <div class="table-wrap"><table><tr><th>Type</th><th>What it controls</th></tr>
  <tr><td><code>welcome</code></td><td>New member greeting</td></tr><tr><td><code>boost</code></td><td>Server boost thank-you</td></tr>
  <tr><td><code>levelup</code></td><td>Chat level-up announcements</td></tr><tr><td><code>voice</code></td><td>Voice level-ups and session summaries</td></tr>
- <tr><td><code>dashboard</code></td><td>Dashboard messages</td></tr></table>
+ <tr><td><code>dashboard</code></td><td>Dashboard messages</td></tr></table></div>
  <p>Commands marked admin work for members with Administrator or the role set as <code>ADMIN_ROLE_ID</code>.</p></section>
 
 <section id="levels"><h2>Levels &amp; XP</h2>
@@ -67,22 +60,26 @@ npm start</code></pre>
 <section id="messages"><h2>Welcome &amp; boost messages</h2>
  <p>New members get a welcome message in the welcome channel. When someone boosts the server, the bot posts a thank-you and can grant a boost reward role. The bot’s status also rotates every 40 seconds (for example “Raider | Ready to Battle”).</p></section>
 
+<section id="control"><h2>Control panel</h2>
+ <p>The <a href="control.html">Control page</a> lets admins change settings from the browser instead of Discord. It shows the bot’s live status, the owner and admins, and controls for message channels, team mode and the soundboard.</p>
+ <ul><li><b>Channels:</b> pick where welcome, boost, level-up, voice and dashboard messages go.</li><li><b>Team mode:</b> choose the voice channel, assign players, and switch team mode or the self-select panel on and off.</li><li><b>Soundboard:</b> block or unblock a member in chosen voice channels, and see who is restricted.</li></ul>
+ <p class="note">The panel signs in with the bot’s <code>PANEL_PASSKEY</code>, which must be the same passkey as this site’s.</p></section>
+
 <section id="commands"><h2>All commands</h2>
- <input class="search" id="cmd-search" type="search" placeholder="Search commands" aria-label="Search commands">
- <div id="commands-list"></div>
+ <p>Every command, with search and one-click copy, lives on the <a href="commands.html">Commands page</a>.</p>
  <p>The classic <code>!raider</code> prefix also works for rank, leaderboard, voicestats, dashboard, team, setchannel and help.</p></section>
 
 <section id="hosting"><h2>Hosting</h2>
  <p>For 24/7 uptime run the bot on Railway, Render, or a VPS with <code>pm2 start index.js</code>. To power the live status on this site, add <code>bot-status-server.js</code> to the bot and set <code>status.mode</code> to <code>"api"</code> in <code>js/config.js</code>.</p></section>
 
 <section id="help"><h2>Troubleshooting</h2>
- <table><tr><th>Problem</th><th>Fix</th></tr>
+ <div class="table-wrap"><table><tr><th>Problem</th><th>Fix</th></tr>
  <tr><td>Slash commands don’t appear</td><td>Re-invite with the <code>applications.commands</code> scope and wait a minute.</td></tr>
  <tr><td>Team mode can’t move members</td><td>Give the bot Administrator, and place its role above the members it moves.</td></tr>
  <tr><td>Soundboard block says “missing permissions”</td><td>The bot role needs Manage Permissions in those channels.</td></tr>
  <tr><td>Soundboard block has no effect</td><td>The member is the owner or has Administrator.</td></tr>
  <tr><td>No XP or messages</td><td>Check intents are enabled and channels are set with <code>/setchannel</code>.</td></tr>
- <tr><td>Site shows “Status unavailable”</td><td>Check <code>status.apiUrl</code> in <code>js/config.js</code> and that the bot host is running.</td></tr></table></section>
-</article></div>
-<footer><div class="wrap"><span>© <span id="year"></span> <span data-name>Dark Raider</span>. Not affiliated with Discord.</span><span><a href="docs.html">Docs</a> &nbsp;·&nbsp; <a href="#" id="out">Log out</a> &nbsp;·&nbsp; <a data-support href="#">Support server</a> &nbsp;·&nbsp; <a data-github href="#">GitHub</a></span></div></footer>
-<script src="js/config.js"></script><script src="js/data.js"></script><script src="js/gate.js"></script><script src="js/main.js"></script></body></html>
+ <tr><td>Site shows “Status unavailable”</td><td>Check <code>status.apiUrl</code> in <code>js/config.js</code> and that the bot host is running.</td></tr></table></div></section>
+</article>
+</div></main>
+<script src="js/config.js"></script><script src="js/data.js"></script><script src="js/layout.js"></script><script src="js/gate.js"></script><script src="js/main.js"></script></body></html>

@@ -1,0 +1,54 @@
+<!doctype html><html lang="en" class="locked"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0c13">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<title>Control center – Dark Raider</title>
+<meta name="description" content="Check Dark Raider's status and change server settings.">
+</head>
+<body data-page="control"><main>
+<div class="page-head"><div class="wrap"><div><h1>Control center</h1><p>See how the bot is doing, who runs it, and change server settings. Changes apply right away.</p></div><span class="checked" data-stat="checked"></span></div></div>
+<div class="wrap">
+ <div class="stats" aria-label="Bot status">
+  <div class="tile"><span>Status</span><b data-stat="status">…</b></div>
+  <div class="tile"><span>Servers</span><b data-stat="servers">–</b></div>
+  <div class="tile"><span>Total members</span><b data-stat="members">–</b></div>
+  <div class="tile"><span>Online now</span><b data-stat="online">–</b></div>
+  <div class="tile"><span>Latency</span><b data-stat="ping">–</b></div>
+  <div class="tile"><span>Uptime</span><b data-stat="uptime">–</b></div>
+ </div>
+
+ <div class="cc">
+  <div>
+   <div class="card" id="p-login" hidden><h3>Connect to the bot</h3><p>Use the bot’s passkey to unlock the controls.</p><label for="p-key">Passkey</label><input id="p-key" type="password" autocomplete="current-password"><div class="btns" style="margin-top:20px"><button class="btn primary" id="p-go" type="button">Connect</button></div></div>
+   <div id="p-app" hidden>
+    <div class="card toolbar"><div><label for="p-guild">Server</label><select id="p-guild"></select></div><button class="btn" id="p-refresh" type="button">Refresh</button></div>
+    <div class="seg" role="tablist"><button class="on" data-tab="channels" type="button" role="tab" aria-selected="true">Channels</button><button data-tab="team" type="button" role="tab" aria-selected="false">Team mode</button><button data-tab="sound" type="button" role="tab" aria-selected="false">Soundboard</button></div>
+
+    <div class="card" id="tab-channels"><h3>Message channels</h3><p style="margin-bottom:18px">Choose where each type of bot message is posted.</p><div id="p-rows"></div></div>
+
+    <div class="card" id="tab-team" hidden>
+     <h3>Team mode</h3><p>Split one voice channel into two private squads.</p>
+     <div class="set vc" style="margin-top:14px"><label for="t-vc">Voice channel to split</label><button class="btn sm" id="t-set" type="button">Set channel</button><select id="t-vc"></select></div>
+     <div class="switch"><div><b>Team mode <span class="state" id="t-state">OFF</span></b><small>Moves each team into its own private channel.</small></div><div class="btns" style="margin:0;gap:6px"><button class="btn sm" id="t-on" type="button">On</button><button class="btn sm" id="t-off" type="button">Off</button></div></div>
+     <div class="switch"><div><b>Self-select panel <span class="state" id="t-pstate">OFF</span></b><small>Players pick Team 1, Team 2 or All with buttons.</small></div><div class="btns" style="margin:0;gap:6px"><button class="btn sm" id="t-pon" type="button">On</button><button class="btn sm" id="t-poff" type="button">Off</button></div></div>
+     <div class="two"><div class="team-box t1"><b>Team 1 <span id="t-c1" class="muted">0</span></b><div id="t-1" class="names"></div></div><div class="team-box t2"><b>Team 2 <span id="t-c2" class="muted">0</span></b><div id="t-2" class="names"></div></div></div>
+     <label for="t-q">Add a player</label><input id="t-q" autocomplete="off" placeholder="Search members by name"><div id="t-res"></div>
+    </div>
+
+    <div class="card" id="tab-sound" hidden>
+     <h3>Soundboard control</h3><p>Block Soundboard and external sounds for one member.</p>
+     <label for="s-ch">Voice channels (hold Ctrl or Cmd to pick several, or leave empty for all)</label><select id="s-ch" multiple size="4"></select>
+     <label for="s-q">Member</label><input id="s-q" autocomplete="off" placeholder="Search members by name"><div id="s-res"></div>
+     <h3 style="margin-top:26px">Currently restricted</h3><div id="s-list"></div>
+    </div>
+   </div>
+  </div>
+
+  <aside class="cc-side">
+   <div class="card" id="snapshot" hidden><h3>Server snapshot</h3><div class="snap" id="snap"></div></div>
+   <div class="card"><h3>Owner &amp; admins</h3><div id="staff-grid"></div></div>
+  </aside>
+ </div>
+</div></main>
+<script src="js/config.js"></script><script src="js/data.js"></script><script src="js/layout.js"></script><script src="js/gate.js"></script><script src="js/main.js"></script><script src="js/panel.js"></script></body></html>
