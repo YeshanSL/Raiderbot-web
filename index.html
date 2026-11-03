@@ -11,7 +11,7 @@
 <div class="btns"><button class="btn primary" type="submit">Unlock</button></div><p id="gmsg" role="status"></p></form></div>
 
 <header class="nav"><div class="wrap"><a class="logo" href="index.html"><i>⚔</i><span data-name>Dark Raider</span></a>
-<nav><a href="index.html#features">Features</a><a href="index.html#team">Team mode</a><a href="index.html#commands">Commands</a><a href="index.html#status">Status</a><a href="index.html#staff">Staff</a><a href="docs.html">Docs</a></nav>
+<nav><a href="index.html#features">Features</a><a href="index.html#team">Team mode</a><a href="index.html#commands">Commands</a><a href="index.html#status">Status</a><a href="index.html#staff">Staff</a><a href="index.html#control">Control</a><a href="docs.html">Docs</a></nav>
 <a class="btn primary" data-invite href="#">Add to Discord</a><button class="menu-btn" aria-label="Menu">☰</button></div></header>
 <main>
 <section class="hero"><div class="wrap"><div>
@@ -58,6 +58,30 @@
  <div id="commands-list"></div>
 </div></section>
 
+<section id="control"><div class="wrap">
+ <div class="sec-head"><h2>Control panel</h2><p>Change the bot’s settings from here. Changes apply right away.</p></div>
+ <div class="card" id="p-login" hidden><p style="color:var(--mute)">Connect to the bot with its passkey.</p><label for="p-key">Passkey</label><input id="p-key" type="password" autocomplete="current-password"><div class="btns"><button class="btn primary" id="p-go" type="button">Connect</button></div></div>
+ <div id="p-app" hidden>
+  <div class="card"><label for="p-guild" style="margin-top:0">Server</label><select id="p-guild"></select></div>
+  <div class="tabs"><button class="on" data-tab="channels" type="button">Channels</button><button data-tab="team" type="button">Team mode</button><button data-tab="sound" type="button">Soundboard</button></div>
+  <div class="card" id="tab-channels"><h3>Message channels</h3><div id="p-rows"></div></div>
+  <div class="card" id="tab-team" hidden>
+   <h3>Team mode</h3><p id="t-state" class="checked" style="margin:0 0 12px"></p>
+   <div class="set"><label for="t-vc">Voice channel to split</label><select id="t-vc"></select><button class="btn" id="t-set" type="button">Set channel</button></div>
+   <div class="two"><div><b>🔴 Team 1</b><div id="t-1" class="names"></div></div><div><b>🔵 Team 2</b><div id="t-2" class="names"></div></div></div>
+   <label for="t-q">Add a player (type a name)</label><input id="t-q" autocomplete="off" placeholder="Search members"><div id="t-res"></div>
+   <div class="btns"><button class="btn primary" id="t-on" type="button">Turn ON</button><button class="btn" id="t-off" type="button">Turn OFF</button><button class="btn" id="t-pon" type="button">Panel ON</button><button class="btn" id="t-poff" type="button">Panel OFF</button></div>
+  </div>
+  <div class="card" id="tab-sound" hidden>
+   <h3>Soundboard control</h3>
+   <label for="s-ch">Voice channels (hold Ctrl to pick several, or leave empty for all)</label><select id="s-ch" multiple size="4"></select>
+   <label for="s-q">Member</label><input id="s-q" autocomplete="off" placeholder="Search members"><div id="s-res"></div>
+   <h3 style="margin-top:22px">Currently restricted</h3><div id="s-list"></div>
+  </div>
+ </div>
+ <p id="p-msg" role="status"></p>
+</div></section>
+
 <section id="staff" hidden><div class="wrap">
  <div class="sec-head"><h2>Owner &amp; admins</h2><p>The people behind <span data-name>Dark Raider</span>.</p></div>
  <div class="grid" id="staff-grid"></div>
@@ -67,4 +91,4 @@
  <div class="btns"><a class="btn primary" data-invite href="#">Add to Discord</a><a class="btn" data-support href="#">Join support server</a></div></div></div></section>
 </main>
 <footer><div class="wrap"><span>© <span id="year"></span> <span data-name>Dark Raider</span>. Not affiliated with Discord.</span><span><a href="docs.html">Docs</a> &nbsp;·&nbsp; <a href="#" id="out">Log out</a> &nbsp;·&nbsp; <a data-support href="#">Support server</a> &nbsp;·&nbsp; <a data-github href="#">GitHub</a></span></div></footer>
-<script src="js/config.js"></script><script src="js/data.js"></script><script src="js/gate.js"></script><script src="js/main.js"></script></body></html>
+<script src="js/config.js"></script><script src="js/data.js"></script><script src="js/gate.js"></script><script src="js/main.js"></script><script src="js/panel.js"></script></body></html>

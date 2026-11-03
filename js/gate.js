@@ -21,7 +21,7 @@
     try {
       const [salt, hash] = H.split(':'), typed = $('#k').value;
       const ok = (await derive(typed, salt)) === hash || (typed !== typed.trim() && (await derive(typed.trim(), salt)) === hash);
-      if (ok) { sessionStorage.setItem('raider-auth', H); $('#k').value = ''; msg(''); open(); }
+      if (ok) { sessionStorage.setItem('raider-auth', H); window.dispatchEvent(new CustomEvent('raider-unlocked', { detail: { passkey: typed } })); $('#k').value = ''; msg(''); open(); }
       else msg('Wrong passkey. Check caps lock and that it matches the one used in set-passkey.html.', 'err');
     } catch (err) { msg('Could not check the passkey: ' + err.message, 'err'); }
   });

@@ -1,8 +1,12 @@
 # Dark Raider website
-Static site (HTML/CSS/JS). Open index.html or upload the folder to Netlify, Vercel, GitHub Pages, etc.
+Plain HTML / CSS / JS. No build step. Upload the files to the repo root and Vercel serves them.
 
-- js/config.js  → bot name, client ID, links, status mode
-- js/data.js    → features and commands (edit text here)
-- css/style.css → colours and fonts (top of file)
-- bot-status-server.js → add to your bot for the live Online/Offline indicator
-- set-passkey.html → open in a browser, type a passkey, paste the line it gives into js/config.js (passkeyHash)
+- index.html, docs.html  → the pages
+- js/config.js           → bot name, links, passkey hash, bot address, status mode
+- js/data.js             → features, commands, and the manual Owner & admins list (TEAM)
+- js/gate.js             → passkey lock screen
+- js/panel.js            → control panel (channels, team mode, soundboard)
+- css/style.css          → colours and fonts (top of the file)
+- set-passkey.html       → open in a browser to create a new passkey hash for config.js
+
+The control panel needs the bot's PANEL_PASSKEY to be the same passkey as this site's.
