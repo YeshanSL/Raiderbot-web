@@ -49,6 +49,8 @@ window.COMMANDS = [
 // If this list is EMPTY, the site shows the owner + admins found automatically by the bot instead
 // (needs STATUS_GUILD_ID on the bot). The section hides itself if there is nothing to show.
 window.TEAM = [
-  // { name: "YourName", role: "Owner", avatar: "", bio: "Founder & developer", link: "https://discord.com/users/123" },
-  // { name: "AdminName", role: "Admin", bio: "Moderator" },
+{ name: "Rumaboi", role: "Owner", avatar: "R", bio: "Founder", link: "841500694720020480" },
+{ name: "KTG11", role: "Admin", avatar: "K", bio: "Moderator", link: "729961700551557212" },
+{ name: "NoisyBoy", role: "Admin", avatar: "N", bio: "Moderator", link: "801981754634141706" },
+{ name: "Bluepineapple", role: "Admin", avatar: "B", bio: "Moderator", link: "" },
 ];
