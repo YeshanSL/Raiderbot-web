@@ -42,7 +42,7 @@ npm start</code></pre>
  <ul><li><code>/rank</code> shows your level and progress.</li><li><code>/leaderboard</code> lists the top 10, sorted by level then XP.</li><li><code>/dashboard</code> opens buttons for rank, leaderboard and team status.</li></ul></section>
 
 <section id="voice"><h2>Voice tracking</h2>
- <p>Every minute in a voice channel earns XP. When a member leaves, the bot posts a summary with time spent, members in the channel and XP earned. <code>/voicestats</code> shows past sessions (the last 500 per server are kept).</p></section>
+ <p>Every minute in a voice channel earns XP: 8 XP/min to start, doubling every time one continuous sitting doubles in length (16 at 10 min, 32 at 20, 64 at 40, 128 at 80, with no limit). Switching channels or reconnecting within 2 minutes keeps the sitting going. When a member leaves, the bot posts a summary with time spent, members in the channel and XP earned. <code>/voicestats</code> shows your current sitting and past sessions (the last 500 per server are kept).</p></section>
 
 <section id="team"><h2>FPS team mode</h2>
  <p>Admins can split one voice channel into two teams that only hear their own squad.</p>
