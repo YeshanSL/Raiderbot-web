@@ -1,7 +1,7 @@
 // ─── Features & commands. Add or edit items here; the site updates itself. ───
 window.FEATURES = [
   { icon: "🏆", title: "Chat levels", home: true, text: "Members earn XP for messages (1 minute cooldown). Level-ups are announced in your chosen channel." },
-  { icon: "🎙️", title: "Voice levels", home: true, text: "XP every minute spent in voice, with its own level-up announcements." },
+  { icon: "🎙️", title: "Voice levels", home: true, text: "XP every minute in voice, doubling the longer you stay in one sitting, with its own level-up announcements." },
   { icon: "⏱️", title: "Voice session summary", home: true, text: "After leaving a call, a recap shows time spent, who was there and XP earned." },
   { icon: "⚔️", title: "FPS team mode", home: true, big: true, text: "Split one voice channel into two isolated squads, like in-game team audio." },
   { icon: "🎛️", title: "Team panel", text: "Post a button panel so players pick Team 1, Team 2 or All themselves." },
